@@ -1,0 +1,38 @@
+grammar Cactus;
+
+token:(ELSE|ID|UID|CONST|ADD|SUB|MUL|DIV|MOD|EQU|NE|GT|GE|LT|LE|AND|OR|NOT|ASSIGN|LBRACKET|RBRACKET|LCBRACKET|RCBRACKET|SEMI|FI|IF|INT|MAIN|RETURN|WHILE|READ|WRITE|COMMENT|WSPACE)*;
+
+ELSE:'else';
+ID:[a-z_][a-z_0-9]*;
+UID:[A-Z_][A-Z_0-9]*;
+CONST:([0])|([-]?[1-9][0-9]*);
+ADD:'+';
+SUB:'-';
+MUL:'*';
+DIV:'/';
+MOD:'%';
+EQU:'==';
+NE:'!=';
+GT:'>';
+GE:'>=';
+LT:'<';
+LE:'<=';
+AND:'&&';
+OR:'||';
+NOT:'!';
+ASSIGN:'=';
+LBRACKET:'(';
+RBRACKET:')';
+LCBRACKET:'{';
+RCBRACKET:'}';
+SEMI:';';
+FI:'fi';
+IF:'if';
+INT:'int';
+MAIN:'main';
+RETURN:'return';
+WHILE:'while';
+READ:'read';
+WRITE:'write';
+COMMENT:([\u002F\u002A][\u002A\u002F](~[\n])*[\n]) ->skip;
+WSPACE:([ \t\n]+) ->skip;
